@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr" class="w-100 h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#198754" />
+    <title>
+      Portail Étudiant - ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR
+    </title>
+    <link rel="icon" type="image/x-icon" href="app_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link href="/assets/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body class="w-100 h-100">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img
+            src="app_logo.png"
+            alt="ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR"
+            height="40"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              Navigation
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/calendar"></a>
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="/planning-control"
+                ></a>
+              </li>
+
+              <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Planing Contrôles
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/exams-table-sm1">Premier semestre</a></li>
+                            <li><a class="dropdown-item disabled" href="/exams-table-sm2">Deuxième semestre</a></li>
+                        </ul>
+                    </li>-->
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Relevés de notes
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/transcript-sem1"
+                      >Premier semestre</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item disabled"
+                      href="/transcript-sem2"
+                    ></a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Messages
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/messages"
+                      >Notes pédagogiques</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="/sms">SMS envoyés</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="navbar-nav">
+              <div class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  OTHMANE SADIKI
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" href="profile.html">Profil</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/security">Sécurité</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/logout">Déconnexion</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container py-5">
+      <div class="col-md-6">
+        <h4 class="mb-4">Relevé de notes 1er semestre</h4>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card mb-3 shadow-sm">
+            <div
+              class="card-header text-white d-flex justify-content-between align-items-center"
+              style="background-color: #6c757d"
+            >
+              <h5 class="mb-0">Module CS5IIR1 : LANGUES 5</h5>
+              <button
+                class="btn details-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#moduleDetails-0"
+              >
+                <i class="fas fa-chevron-down"></i> Détails
+              </button>
+            </div>
+            <div id="moduleDetails-0" class="collapse">
+              <div class="card-body">
+                <p class="mb-2 moyenne-label">
+                  Moyenne Module: <span class="moyenne-value">14.15</span>
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Matière</th>
+                        <th>Moyenne</th>
+                        <th>Rattrapage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Anglais 5</td>
+                        <td>15.25</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>T.E.C 3</td>
+                        <td>13.05</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 shadow-sm">
+            <div
+              class="card-header text-white d-flex justify-content-between align-items-center"
+              style="background-color: #6c757d"
+            >
+              <h5 class="mb-0">Module CS5IIR2 : SCIENCES DE GESTION 1</h5>
+              <button
+                class="btn details-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#moduleDetails-1"
+              >
+                <i class="fas fa-chevron-down"></i> Détails
+              </button>
+            </div>
+            <div id="moduleDetails-1" class="collapse">
+              <div class="card-body">
+                <p class="mb-2 moyenne-label">
+                  Moyenne Module: <span class="moyenne-value">10.62</span>
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Matière</th>
+                        <th>Moyenne</th>
+                        <th>Rattrapage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Comptabilité Analytique</td>
+                        <td>09.73</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Gestion des Entreprises 1</td>
+                        <td>11.50</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 shadow-sm">
+            <div
+              class="card-header text-white d-flex justify-content-between align-items-center"
+              style="background-color: #6c757d"
+            >
+              <h5 class="mb-0">Module CS5IIR3 : DÉVELOPPEMENT 1</h5>
+              <button
+                class="btn details-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#moduleDetails-2"
+              >
+                <i class="fas fa-chevron-down"></i> Détails
+              </button>
+            </div>
+            <div id="moduleDetails-2" class="collapse">
+              <div class="card-body">
+                <p class="mb-2 moyenne-label">
+                  Moyenne Module: <span class="moyenne-value">15.68</span>
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Matière</th>
+                        <th>Moyenne</th>
+                        <th>Rattrapage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>P.O.O 1 (C++)</td>
+                        <td>15.68</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 shadow-sm">
+            <div
+              class="card-header text-white d-flex justify-content-between align-items-center"
+              style="background-color: #6c757d"
+            >
+              <h5 class="mb-0">Module CS5IIR4 : BASES DE DONNÉES 1</h5>
+              <button
+                class="btn details-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#moduleDetails-3"
+              >
+                <i class="fas fa-chevron-down"></i> Détails
+              </button>
+            </div>
+            <div id="moduleDetails-3" class="collapse">
+              <div class="card-body">
+                <p class="mb-2 moyenne-label">
+                  Moyenne Module: <span class="moyenne-value">14.10</span>
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Matière</th>
+                        <th>Moyenne</th>
+                        <th>Rattrapage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Bases de Données 2 (SQL, PL/SQL-ORACLE)</td>
+                        <td>14.70</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Langage de Script (JavaScript, PHP)</td>
+                        <td>13.50</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 shadow-sm">
+            <div
+              class="card-header text-white d-flex justify-content-between align-items-center"
+              style="background-color: #6c757d"
+            >
+              <h5 class="mb-0">
+                Module CS5IIR5 : SYSTÈMES D&#x27;INFORMATION 1
+              </h5>
+              <button
+                class="btn details-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#moduleDetails-4"
+              >
+                <i class="fas fa-chevron-down"></i> Détails
+              </button>
+            </div>
+            <div id="moduleDetails-4" class="collapse">
+              <div class="card-body">
+                <p class="mb-2 moyenne-label">
+                  Moyenne Module: <span class="moyenne-value">13.60</span>
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Matière</th>
+                        <th>Moyenne</th>
+                        <th>Rattrapage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Conception des Systèmes d&#x27;Information 2</td>
+                        <td>13.60</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 shadow-sm">
+            <div
+              class="card-header text-white d-flex justify-content-between align-items-center"
+              style="background-color: #6c757d"
+            >
+              <h5 class="mb-0">Module CS5IIR6 : SYSTÈMES 1</h5>
+              <button
+                class="btn details-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#moduleDetails-5"
+              >
+                <i class="fas fa-chevron-down"></i> Détails
+              </button>
+            </div>
+            <div id="moduleDetails-5" class="collapse">
+              <div class="card-body">
+                <p class="mb-2 moyenne-label">
+                  Moyenne Module: <span class="moyenne-value">08.25</span>
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Matière</th>
+                        <th>Moyenne</th>
+                        <th>Rattrapage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Système d’exploitation 3 (UNIX)</td>
+                        <td>08.25</td>
+                        <td>X</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 shadow-sm">
+            <div
+              class="card-header text-white d-flex justify-content-between align-items-center"
+              style="background-color: #6c757d"
+            >
+              <h5 class="mb-0">Module CS5IIR7 : RESEAUX 1</h5>
+              <button
+                class="btn details-btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#moduleDetails-6"
+              >
+                <i class="fas fa-chevron-down"></i> Détails
+              </button>
+            </div>
+            <div id="moduleDetails-6" class="collapse">
+              <div class="card-body">
+                <p class="mb-2 moyenne-label">
+                  Moyenne Module: <span class="moyenne-value">09.43</span>
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Matière</th>
+                        <th>Moyenne</th>
+                        <th>Rattrapage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Réseaux Informatiques</td>
+                        <td>09.43</td>
+                        <td>X</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var collapseElements = document.querySelectorAll(".collapse");
+
+        collapseElements.forEach(function (el) {
+          el.addEventListener("show.bs.collapse", function () {
+            this.previousElementSibling
+              .querySelector(".fas")
+              .classList.replace("fa-chevron-down", "fa-chevron-up");
+          });
+          el.addEventListener("hide.bs.collapse", function () {
+            this.previousElementSibling
+              .querySelector(".fas")
+              .classList.replace("fa-chevron-up", "fa-chevron-down");
+          });
+        });
+      });
+    </script>
+
+    <div class="footer bg-light py-3">
+      <div class="container">
+        <span
+          >&copy; 2024 <b>ÉCOLE MAROCAINE DES SCIENCES DE L'INGÉNIEUR</b></span
+        >
+        <span>Tous droits réservés.</span>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const tooltips = document.querySelectorAll(".tt");
+      tooltips.forEach((t) => {
+        new bootstrap.Tooltip(t, {
+          customClass: "custom-tooltip-class",
+        });
+      });
+    </script>
+  </body>
+</html>
